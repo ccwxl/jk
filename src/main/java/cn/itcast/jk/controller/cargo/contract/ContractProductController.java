@@ -48,6 +48,11 @@ public class ContractProductController extends BaseController {
 		model.addAttribute("contractId", contractProduct.getContractId());// 传递主表id
 		return "redirect:/cargo/contractproduct/tocreate.action";
 	}
-	
+
+	@RequestMapping("deleteById.action")
+	public String deleteByID(String id,String contractId){
+
+		return "redirect:/cargo/contractproduct/tocreate.action";
+	}
 
 }

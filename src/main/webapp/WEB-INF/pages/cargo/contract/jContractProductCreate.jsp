@@ -108,6 +108,7 @@
 		<td class="tableHeader">箱数</td>
 		<td class="tableHeader">单价</td>
 		<td class="tableHeader">总金额</td>
+		<td class="tableHeader">操作</td>
 	</tr>
 	</thead>
 	<tbody class="tableBody" >
@@ -124,6 +125,12 @@
 		<td>${o.boxNum}</td>
 		<td>${o.price}</td>
 		<td>${o.amount}</td>
+		<td>
+			<a href="toupdate.action?id=${o.id}">[修改11112222]</a>
+			<a href="deleteById.action?id=${id}&contractId=${o.contractId}">[删除]</a>
+			<a href="${cxf}/cargo/extcproduct/tocreate.action?">[附件]</a>
+		</td>
+
 	</tr>
 	</c:forEach>
 	

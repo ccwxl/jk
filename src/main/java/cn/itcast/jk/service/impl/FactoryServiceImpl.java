@@ -24,7 +24,6 @@ public class FactoryServiceImpl extends BaseServiceImpl<Factory> implements
 	@Qualifier("factoryDao")
 	private FactoryDao factoryDao;
 	
-	//
 	@Resource(name = "factoryDao")
 	public void setDao(BaseDao<Factory> dao) {
 		super.setDao(dao);
