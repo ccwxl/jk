@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.itcast.jk.mapper.ContractProductMapper">
+<mapper namespace="cn.wxl.jk.mapper.ContractProductMapper">
 	<resultMap type="cn.wxl.jk.domain.ContractProduct" id="contractProductMap">
 		<id property="id" column="CONTRACT_PRODUCT_ID" />
 		

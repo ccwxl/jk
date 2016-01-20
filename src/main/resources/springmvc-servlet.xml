@@ -18,7 +18,7 @@
 	<!-- 处理静态资源问题 -->
 	<mvc:default-servlet-handler/>
 	<!-- 2.扫描controller包 -->
-	<context:component-scan base-package="cn.itcast.jk.controller" />
+	<context:component-scan base-package="cn.wxl.jk.controller" />
 	<!-- 3.视图解析器 -->
 	<bean id="jspViewReslver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

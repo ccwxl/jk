@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository("contractProductDao")
 public class ContractProductDaoImpl extends BaseDaoImpl<ContractProduct> implements ContractProductDao {
 		public ContractProductDaoImpl(){
-			super.setNs("cn.itcast.jk.mapper.ContractProductMapper");
+			super.setNs("cn.wxl.jk.mapper.ContractProductMapper");
 		}
 
 }

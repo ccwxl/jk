@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 @Repository("factoryDao")
 public class FactoryDaoImpl extends BaseDaoImpl<Factory> implements FactoryDao {
 		public FactoryDaoImpl(){
-			super.setNs("cn.itcast.jk.mapper.FactoryMapper");
+			super.setNs("cn.wxl.jk.mapper.FactoryMapper");
 		}
 
 		@SuppressWarnings("unused")

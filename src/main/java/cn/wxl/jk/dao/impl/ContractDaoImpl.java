@@ -10,7 +10,7 @@ import cn.wxl.jk.domain.Contract;
 @Repository("contractDao")
 public class ContractDaoImpl extends BaseDaoImpl<Contract> implements ContractDao {
 		public ContractDaoImpl(){
-			super.setNs("cn.itcast.jk.mapper.ContractMapper");
+			super.setNs("cn.wxl.jk.mapper.ContractMapper");
 		}
 
 		public void updateState(Map map) {
