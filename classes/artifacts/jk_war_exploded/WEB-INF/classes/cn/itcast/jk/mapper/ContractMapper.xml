@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.itcast.jk.mapper.ContractMapper">
-	<resultMap type="cn.wxl.jk.domain.Contract" id="contractMap">
+	<resultMap type="cn.itcast.jk.domain.Contract" id="contractMap">
 		<id property="id" column="CONTRACT_ID" />
 		<result property="offeror" column="OFFEROR"  />
 		<result property="contractNo" column="CONTRACT_NO" />
@@ -42,7 +42,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where CONTRACT_ID =#{pid}
 	</select>
 	
-	<insert id="insert" parameterType="cn.wxl.jk.domain.Contract">
+	<insert id="insert" parameterType="cn.itcast.jk.domain.Contract">
 			insert into contract_c (CONTRACT_ID ,OFFEROR,CONTRACT_NO,SIGNING_DATE,INPUT_BY,CHECK_BY,
 									INSPECTOR,TOTAL_AMOUNT,IMPORT_NUM,CREQUEST,CUSTOM_NAME,DELIVERY_PERIOD,
 									SHIP_TIME,TRADE_TERMS,REMARK,PRINT_STYLE,OLD_STATE,STATE,OUT_STATE,CREATE_BY,
@@ -73,7 +73,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			)
 	</insert>
 	
-	<update id="update" parameterType="cn.wxl.jk.domain.Contract">
+	<update id="update" parameterType="cn.itcast.jk.domain.Contract">
 		update contract_c  
 		<set>
 			<if test="offeror != null">OFFEROR=#{offeror,jdbcType=VARCHAR},</if>

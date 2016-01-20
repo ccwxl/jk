@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.itcast.jk.mapper.FactoryMapper">
 	<!-- resultMap映射 -->
-	<resultMap type="cn.wxl.jk.domain.Factory" id="factoryMap">
+	<resultMap type="cn.itcast.jk.domain.Factory" id="factoryMap">
 		<id property="id" column="Factory_ID" />
 		<result property="fullName" column="FULL_NAME" />
 		<result property="factoryName" column="FACTORY_NAME" />
@@ -37,7 +37,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 新增时,如果数据库是oracle测需要指定字段的类型,jdbcType=VARCHAR(mybatis自定义) 
 			无效的列类型: 1111; nested exception is java.sql.SQLException
 			mysql不用写 -->
-	<insert id="insert" parameterType="cn.wxl.jk.domain.Factory">
+	<insert id="insert" parameterType="cn.itcast.jk.domain.Factory">
 		insert into
 		factory_c(FACTORY_ID,FULL_NAME,FACTORY_NAME,CONTACTS,PHONE,MOBILE,FAX,CNOTE,INSPECTOR,ORDER_NO,STATE,CREATE_BY,CREATE_DEPT,CREATE_TIME)
 		values(
@@ -59,7 +59,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</insert>
 	
 	<!-- 修改保存,这里的id必须写成id,因为是从po中取出的 -->
-	<update id="update" parameterType="cn.wxl.jk.domain.Factory" >
+	<update id="update" parameterType="cn.itcast.jk.domain.Factory" >
 		update factory_c
 		<set>
 			<if test="fullName!=null">FULL_NAME=#{fullName, jdbcType=VARCHAR},</if>
