@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import cn.itcast.util.UtilFuns;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,11 @@ public class ContractProductServiceImpl extends BaseServiceImpl<ContractProduct>
 	
 	public void insert(ContractProduct contractProduct) {
 		contractProduct.setId(UUID.randomUUID().toString());
+		//自动计算总金额=数量*单价		...修改，删除；同步合同总金额
+		//TODO  计算价格
+		if(UtilFuns.isNotEmpty(contractProduct.getCnumber()) && UtilFuns.isNotEmpty(contractProduct.getPrice())){
+			contractProduct.setAmount(contractProduct.getCnumber()*contractProduct.getPrice());
+		}
 		contractProductDao.insert(contractProduct);
 	}
 }

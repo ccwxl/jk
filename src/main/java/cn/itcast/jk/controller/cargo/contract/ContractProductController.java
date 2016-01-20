@@ -44,13 +44,32 @@ public class ContractProductController extends BaseController {
 	@RequestMapping("insert.action")
 	public String insert(ContractProduct contractProduct, Model model) {
 		contractProductService.insert(contractProduct);
-
 		model.addAttribute("contractId", contractProduct.getContractId());// 传递主表id
 		return "redirect:/cargo/contractproduct/tocreate.action";
 	}
 
+	@RequestMapping("toupdate.action")
+	public String topdate(String id,Model model){
+		ContractProduct obj= contractProductService.get(id);
+		model.addAttribute("obj",obj);
+
+		List<Factory> factoryList = factoryService.getFactoryList();
+		model.addAttribute("factoryList", factoryList);
+
+		return  "/cargo/contract/jContractProductUpdate.jsp";
+	}
+
+	@RequestMapping("update.action")
+	public String update(ContractProduct contractProduct,Model model){
+		contractProductService.update(contractProduct);
+		model.addAttribute("contractId", contractProduct.getId());
+		return "redirect:/cargo/contractproduct/tocreate.action";
+	}
+
 	@RequestMapping("deleteById.action")
-	public String deleteByID(String id,String contractId){
+	public String deleteById(String id,String contractId,Model model){
+		contractProductService.deleteById(id);
+		model.addAttribute("contractId", contractId);
 
 		return "redirect:/cargo/contractproduct/tocreate.action";
 	}
