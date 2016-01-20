@@ -128,7 +128,7 @@
 		<td>
 			<a href="toupdate.action?id=${o.id}">[修改]</a>
 			<a href="deleteById.action?id=${o.id}&contractId=${o.contractId}">[删除]</a>
-			<a href="${cxf}/cargo/extcproduct/tocreate.action?">[附件]</a>
+			<a href="${cxf}/cargo/extcproduct/tocreate.action?id=${o.id}&contractId=${o.contractId}">[附件]</a>
 		</td>
 
 	</tr>
