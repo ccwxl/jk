@@ -8,6 +8,8 @@ public class ExtCProduct {
 
     private String contractProductId;
     private String factoryId;
+    private String factoryName;
+    private Integer ctype;
 
     private String productNo;
     private String productImage;
@@ -18,6 +20,22 @@ public class ExtCProduct {
     private Double amount;
     private String productRequest;
     private String orderNo;
+
+    public String getFactoryName() {
+        return factoryName;
+    }
+
+    public void setFactoryName(String factoryName) {
+        this.factoryName = factoryName;
+    }
+
+    public Integer getCtype() {
+        return ctype;
+    }
+
+    public void setCtype(Integer ctype) {
+        this.ctype = ctype;
+    }
 
     public String getContractProductId() {
         return contractProductId;

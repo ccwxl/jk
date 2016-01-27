@@ -1,9 +1,11 @@
 package cn.wxl.jk.service.impl;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import cn.wxl.jk.dao.ExtCProductDao;
 import cn.wxl.util.UtilFuns;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,9 @@ public class ContractProductServiceImpl extends BaseServiceImpl<ContractProduct>
 	public void setDao(BaseDao<ContractProduct> dao) {
 		super.setDao(dao);
 	}
+
+	@Resource(name="extCProductDao")
+	private ExtCProductDao extCProductDao;
 	
 	public void insert(ContractProduct contractProduct) {
 		contractProduct.setId(UUID.randomUUID().toString());
@@ -33,5 +38,12 @@ public class ContractProductServiceImpl extends BaseServiceImpl<ContractProduct>
 			contractProduct.setAmount(contractProduct.getCnumber()*contractProduct.getPrice());
 		}
 		contractProductDao.insert(contractProduct);
+	}
+
+	@Override
+	public void deleteById(Serializable id) {
+		Serializable [] ids ={id};
+		extCProductDao.deleteByContractProductById(ids);
+		contractProductDao.deleteById(id);
 	}
 }

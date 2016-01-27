@@ -14,7 +14,7 @@
 <body>
 <form method="post">
 	<input type="text" name="id" value="${obj.id}">
-	<input type="text" name="contractId" value="${obj.contractId}"/>
+	<input type="text" name="contractProductId" value="${obj.contractProductId}"/>
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
@@ -46,7 +46,7 @@
 	            	 <select name="factoryId" onchange="setFactoryName(this.options[this.selectedIndex].text);">
 		            	<option value="">--请选择--</option>
 	            		<c:forEach items="${factoryList}" var="f">
-							<option value="${f.id}"   <c:if test="${f.id==obj.factoryId}">selected</c:if> >${f.factoryName}</option>
+	            			<option value="${f.id}" <c:if test="${f.id==obj.factoryId}">selected</c:if>${f.factoryName}</option>
 	            		</c:forEach>
 	            	</select>
 	            	<input type="hidden" id="factoryName" name="factoryName" value="${obj.factoryName}"/>
@@ -63,12 +63,6 @@
 	            <td class="tableContent"><input type="text" name="cnumber" value="${obj.cnumber}"/></td>
 	            <td class="columnTitle_mustbe">包装单位：</td>
 	            <td class="tableContent"><input type="text" name="packingUnit" value="${obj.packingUnit}"/></td>
-	        </tr>
-	        <tr>
-	            <td class="columnTitle_mustbe">装率：</td>
-	            <td class="tableContent"><input type="text" name="loadingRate" value="${obj.loadingRate}"/></td>
-	            <td class="columnTitle_mustbe">箱数：</td>
-	            <td class="tableContent"><input type="text" name="boxNum" value="${obj.boxNum}"/></td>
 	        </tr>
 	        <tr>
 	            <td class="columnTitle_mustbe">单价：</td>

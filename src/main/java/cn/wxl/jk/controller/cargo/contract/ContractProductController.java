@@ -1,6 +1,8 @@
 package cn.wxl.jk.controller.cargo.contract;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -34,8 +36,9 @@ public class ContractProductController extends BaseController {
 		model.addAttribute("factoryList", factoryList);
 
 		// 显示下面的货物列表
-
-		List<ContractProduct> ontractProductlist = contractProductService.find(null);
+		Map paraMap = new HashMap();
+		paraMap.put("contractId", contractId);
+		List<ContractProduct> ontractProductlist = contractProductService.find(paraMap);
 		model.addAttribute("dataList", ontractProductlist);
 
 		return "/cargo/contract/jContractProductCreate.jsp";
