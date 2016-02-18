@@ -2,6 +2,7 @@ package cn.wxl.jk.controller.cargo.extcproduct;
 
 import cn.wxl.jk.domain.ExtCProduct;
 import cn.wxl.jk.domain.Factory;
+import cn.wxl.jk.domain.SysCode;
 import cn.wxl.jk.service.ExtCProductService;
 import cn.wxl.jk.service.FactoryService;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,7 +45,8 @@ public class ExtCProductContorller {
         List<Factory> factoryList  =factoryService.getFactoryList();
         model.addAttribute("factoryList",factoryList);
         //获取所有的分类
-        //List<> extCProductService.getCtypeList();
+        List<SysCode> ctypeList =  extCProductService.getCtypeList();
+        model.addAttribute("ctypeList",ctypeList);
 
         return "/cargo/contract/jExtCproductCreate.jsp";
     }
@@ -65,6 +67,9 @@ public class ExtCProductContorller {
         List<Factory> factoryList = factoryService.getFactoryList();
         model.addAttribute("factoryList",factoryList);
         //准备分类下拉列表
+        //获取所有的分类
+        List<SysCode> ctypeList =  extCProductService.getCtypeList();
+        model.addAttribute("ctypeList",ctypeList);
 
         return "/cargo/contract/jExtCProductUpdate.jsp";
     }

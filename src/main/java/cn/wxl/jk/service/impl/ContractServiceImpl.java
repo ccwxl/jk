@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import cn.wxl.jk.VO.ContractVO;
 import cn.wxl.jk.dao.ContractProductDao;
 import cn.wxl.jk.dao.ExtCProductDao;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -55,6 +56,11 @@ public class ContractServiceImpl extends BaseServiceImpl<Contract> implements Co
 		map.put("ids", ids);
 		contractDao.updateState(map);
 	}
+
+	public ContractVO view(String id) {
+		return contractDao.view(id);
+	}
+
 	@Override
 	public void deleteById(Serializable id) {
 		Serializable [] ids ={id};

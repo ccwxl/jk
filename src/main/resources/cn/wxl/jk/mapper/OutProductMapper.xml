@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.wxl.jk.mapper.OutProductMapper">
+    <resultMap id="outProductVOMap" type="cn.wxl.jk.VO.OutProductVO">
+        <result property="customName" column="CUSTOM_NAME"/>
+        <result property="contractNo" column="CONTRACT_NO"/>
+        <result property="productNo" column="PRODUCT_NO"/>
+        <result property="cnumber" column="CNUMBER"/>
+        <result property="factoryName" column="FACTORY_NAME"/>
+        <result property="deliveryPeriod" column="DELIVERY_PERIOD"/>
+        <result property="shipTime" column="SHIP_TIME"/>
+        <result property="tradeTerms" column="TRADE_TERMS"/>
+    </resultMap>
+    <select id="find" parameterType="map" resultMap="outProductVOMap">
+        select
+           c.custom_name,c.contract_no,to_char(c.delivery_period,'yyyy-MM-dd') as delivery_period,to_char(c.ship_time,'yyyy-MM-dd') as ship_time,
+           c.trade_terms,cp.product_no,cp.factory_name,concat(cp.cnumber,cp.packing_unit) as cnumber
+        from
+        (
+          select contract_id,custom_name,contract_no,delivery_period,ship_time,trade_terms from contract_c
+        ) c
+        left join
+        (
+          select contract_id, product_no,factory_name,cnumber,packing_unit from contract_product_c
+        ) cp
+
+        on c.contract_id=cp.contract_id
+
+        where to_char(c.ship_time,'yyyy-MM')=#{inputDate}
+    </select>
+</mapper>

@@ -1,9 +1,15 @@
-package cn.wxl.jk.domain;
+package cn.wxl.jk.VO;
+
+import cn.wxl.jk.domain.ContractProduct;
 
 import java.util.Date;
+import java.util.List;
 
-public class Contract {
+public class ContractVO {
 	private String id;
+
+	private List<ContractProductVO> contractProducts; //货物的集合
+
 	private String offeror; // 收购方
 	private String contractNo;
 
@@ -29,7 +35,9 @@ public class Contract {
 
 	private String createBy;
 	private String createDept;
-	private java.util.Date createTime;
+	private Date createTime;
+
+	private String printStyle;
 
 	public String getId() {
 		return id;
@@ -200,11 +208,11 @@ public class Contract {
 		this.createDept = createDept;
 	}
 
-	public java.util.Date getCreateTime() {
+	public Date getCreateTime() {
 		return createTime;
 	}
 
-	public void setCreateTime(java.util.Date createTime) {
+	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
 	}
 
@@ -223,4 +231,21 @@ public class Contract {
 	public void setExtNumber(String extNumber) {
 		this.extNumber = extNumber;
 	}
+
+	public List<ContractProductVO> getContractProducts() {
+		return contractProducts;
+	}
+
+	public void setContractProducts(List<ContractProductVO> contractProducts) {
+		this.contractProducts = contractProducts;
+	}
+
+	public String getPrintStyle() {
+		return printStyle;
+	}
+	public void setPrintStyle(String printStyle) {
+		this.printStyle = printStyle;
+	}
+
+	
 }

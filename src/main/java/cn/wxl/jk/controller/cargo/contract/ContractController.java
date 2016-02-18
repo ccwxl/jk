@@ -5,15 +5,20 @@ package cn.wxl.jk.controller.cargo.contract;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import cn.wxl.jk.controller.BaseController;
-import cn.wxl.jk.service.ContractService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import cn.wxl.jk.VO.ContractVO;
 import cn.wxl.jk.domain.Contract;
+import cn.wxl.jk.print.ContractPrint;
+import cn.wxl.jk.print.ContractPrintTemplate;
+import cn.wxl.jk.service.ContractService;
 
 @Controller
 @RequestMapping("/cargo/contract/")
@@ -76,8 +81,8 @@ public class ContractController extends BaseController {
 	// 查看
 	@RequestMapping("toview.action")
 	public String toview(String id,Model model) {
-		Contract contract = contractService.get(id);
-		model.addAttribute("obj", contract);
+		ContractVO obj = contractService.view(id);
+		model.addAttribute("obj", obj);
 		return "/cargo/contract/jContractView.jsp";
 	}
 
@@ -94,4 +99,23 @@ public class ContractController extends BaseController {
 		contractService.updateStop(ids);
 		return "redirect:/cargo/contract/list.action";
 	}
+	
+	    //打印
+		@RequestMapping("print.action")
+		public void print(String id, HttpServletRequest request, HttpServletResponse response) throws Exception{
+			ContractPrint cp = new ContractPrint();
+			
+			ContractVO obj = contractService.view(id);
+			cp.print(obj, request.getSession().getServletContext().getRealPath("/"), response);
+		}
+		
+		//合同模板打印
+		@RequestMapping("printTemplate.action")
+		public void printTemplate(String id, HttpServletRequest request, HttpServletResponse response) throws Exception{
+			ContractPrintTemplate cp = new ContractPrintTemplate();
+			
+			ContractVO obj = contractService.view(id);
+			cp.print(obj, request.getSession().getServletContext().getRealPath("/"), response);
+			//cp.print();
+		}
 }

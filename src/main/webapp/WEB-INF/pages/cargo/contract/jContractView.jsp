@@ -84,9 +84,55 @@
 		</table>
 	</div>
 </div>
- 
- 
-</form>
+
+<div>
+	<div class="eXtremeTable" >
+		<table id="ec_table" class="tableRegion" width="98%" >
+			<thead>
+			<tr>
+				<td class="tableHeader">序号</td>
+				<td class="tableHeader">厂家名称</td>
+				<td class="tableHeader">货号</td>
+				<td class="tableHeader">数量</td>
+				<td class="tableHeader">包装单位</td>
+				<td class="tableHeader">装率</td>
+				<td class="tableHeader">箱数</td>
+				<td class="tableHeader">单价</td>
+				<td class="tableHeader">总金额</td>
+			</tr>
+			</thead>
+			<tbody class="tableBody" >
+
+			<c:forEach items="${obj.contractProducts}" var="cp" varStatus="status">
+				<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+					<td>${status.index+1}</td>
+					<td>${cp.factory.factoryName}</td>
+					<td>${cp.productNo}</td>
+					<td>${cp.cnumber}</td>
+					<td>${cp.packingUnit}</td>
+					<td>${cp.loadingRate}</td>
+					<td>${cp.boxNum}</td>
+					<td>${cp.price}</td>
+					<td>${cp.amount}</td>
+				</tr>
+				<c:forEach items="${cp.extCProducts}" var="ext" varStatus="status">
+					<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+						<td><font color="blue">附件：${status.index+1}</font></td>
+						<td>${ext.factory.factoryName}</td>
+						<td>${ext.productNo}</td>
+						<td>${ext.cnumber}</td>
+						<td>${ext.packingUnit}</td>
+						<td>${ext.price}</td>
+						<td>${ext.amount}</td>
+					</tr>
+				</c:forEach>
+			</c:forEach>
+
+			</tbody>
+		</table>
+	</div>
+	</div>
+	</div>
 </body>
 </html>
 

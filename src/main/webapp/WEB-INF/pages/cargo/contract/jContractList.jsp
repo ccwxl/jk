@@ -20,6 +20,8 @@
 <li id="delete"><a href="#" onclick="formSubmit('delete.action','_self');this.blur();">删除</a></li>
 <li id="new"><a href="#" onclick="formSubmit('submit.action','_self');this.blur();">上报</a></li>
 <li id="new"><a href="#" onclick="formSubmit('cancel.action','_self');this.blur();">取消</a></li>
+<li id="print"><a href="#" onclick="formSubmit('print.action','_self');this.blur();">打印</a></li>
+<li id="print" style="white-space:nowrap;"><a href="#" onclick="formSubmit('printTemplate.action','_self');this.blur();">模板打印</a></li>
 </ul>
   </div>
 </div>
@@ -45,6 +47,7 @@
 		<td class="tableHeader">序号</td>
 		<td class="tableHeader">客户名称</td>
 		<td class="tableHeader">合同号</td>
+		<td class="tableHeader">货物数/附件数</td>
 		<td class="tableHeader">制单人</td>
 		<td class="tableHeader">审单人</td>
 		<td class="tableHeader">验货员</td>
@@ -64,6 +67,7 @@
 		<td>${status.index+1}</td>
 		<td>${o.customName}</td>
 		<td><a href="toview.action?id=${o.id}">${o.contractNo}</a></td>
+		<td style="text-align: center"> ${o.pdNumber}/${o.extNumber}</td>
 		<td>${o.inputBy}</td>
 		<td>${o.checkBy}</td>
 		<td>${o.inspector}</td>

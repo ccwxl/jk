@@ -55,6 +55,15 @@
 	            <td class="tableContent"><input type="text" name="productNo" value="${obj.productNo}"/></td>
 	        </tr>
 	        <tr>
+				<td class="columnTitle_mustbe">分类：</td>
+				<td class="tableContent">
+					<select name="ctype">
+						<option value="">--请选择--</option>
+						<c:forEach items="${ctypeList}" var="cl">
+							<option value="${cl.orderNo}" <c:if test="${obj.ctype==cl.orderNo}">selected</c:if>>${cl.name}</option>
+						</c:forEach>
+					</select>
+				</td>
 	            <td class="columnTitle_mustbe">货物照片：</td>
 	            <td class="tableContent"><input type="text" name="productImage" value="${obj.productImage}"/></td>
 	        </tr>
